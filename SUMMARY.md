@@ -28,7 +28,7 @@
 
 ## 小样本（FSL）图像分类分割问题 <a id="xiao-yang-ben-tu-xiang-fen-lei-fen-ge-wen-ti"></a>
 
-* [小样本分割模型](xiao-yang-ben-tu-xiang-fen-lei-fen-ge-wen-ti/untitled.md)
+* [小样本分割模型](xiao-yang-ben-tu-xiang-fen-lei-fen-ge-wen-ti/few-shot-seg.md)
 
 ## 计算机视觉trick汇总
 
