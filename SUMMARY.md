@@ -2,11 +2,11 @@
 
 * [Introduction](README.md)
 
-## 图像语义分割
+## 图像语义分割 <a id="semantic_merge"></a>
 
-* [经典语义分割模型](tu-xiang-yu-yi-fen-ge/jing-dian-yu-yi-fen-ge-mo-xing.md)
-* [近期分割SOTA模型（2021）](tu-xiang-yu-yi-fen-ge/jin-qi-fen-ge-sota-mo-xing-2021.md)
-* [语义分割相关](tu-xiang-yu-yi-fen-ge/semantic_seg.md)
+* [经典语义分割模型](semantic_merge/jing-dian-yu-yi-fen-ge-mo-xing.md)
+* [近期分割SOTA模型（2021）](semantic_merge/jin-qi-fen-ge-sota-mo-xing-2021.md)
+* [语义分割相关](semantic_merge/semantic_seg.md)
 
 ## 图像目标检测
 
