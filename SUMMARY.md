@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Table of contents](README.md)
+* [Introduction](init.md)
 * [小样本学习](few_shot/README.md)
   * [小样本分割模型](few_shot/few-shot-seg.md)
 * [计算机视觉组件与trick](com_trick/README.md)
@@ -27,5 +28,4 @@
   * [目标检测相关思路梳理](detection/mu-biao-jian-ce-xiang-guan.md)
 * [交互式语义分割](inter_seg/README.md)
   * [问题定义与评估](inter_seg/wen-ti-ding-yi-yu-ping-gu.md)
-* [Introduction](init.md)
 

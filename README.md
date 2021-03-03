@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Initial page](./)
+* [Introduction](init.md)
 * [视觉transformer](cv_transformer/)
   * [Transformer图像分类](cv_transformer/untitled.md)
   * [Transformer目标检测](cv_transformer/transformer-mu-biao-jian-ce.md)
@@ -23,7 +24,6 @@
   * [Attention](com_trick/attention.md)
   * [SENet](com_trick/untitled.md)
   * [Residual](com_trick/residual.md)
-* [Introduction](init.md)
 * [图像语义分割](semantic_merge/)
   * [近期分割SOTA模型（2021）](semantic_merge/jin-qi-fen-ge-sota-mo-xing-2021.md)
   * [语义分割相关](semantic_merge/semantic_seg.md)
