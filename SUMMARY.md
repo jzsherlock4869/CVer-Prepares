@@ -2,11 +2,11 @@
 
 * [Introduction](README.md)
 
-## 图像语义分割 <a id="semantic_merge"></a>
+## 图像语义分割
 
-* [经典语义分割模型](semantic_merge/jing-dian-yu-yi-fen-ge-mo-xing.md)
-* [近期分割SOTA模型（2021）](semantic_merge/jin-qi-fen-ge-sota-mo-xing-2021.md)
-* [语义分割相关](semantic_merge/semantic_seg.md)
+* [经典语义分割模型](tu-xiang-yu-yi-fen-ge/jing-dian-yu-yi-fen-ge-mo-xing.md)
+* [近期分割SOTA模型（2021）](tu-xiang-yu-yi-fen-ge/jin-qi-fen-ge-sota-mo-xing-2021.md)
+* [语义分割相关](tu-xiang-yu-yi-fen-ge/yu-yi-fen-ge-xiang-guan.md)
 
 ## 图像目标检测
 
@@ -28,7 +28,7 @@
 
 ## 小样本（FSL）图像分类分割问题 <a id="xiao-yang-ben-tu-xiang-fen-lei-fen-ge-wen-ti"></a>
 
-* [小样本分割模型](xiao-yang-ben-tu-xiang-fen-lei-fen-ge-wen-ti/few-shot-seg.md)
+* [小样本分割模型](xiao-yang-ben-tu-xiang-fen-lei-fen-ge-wen-ti/untitled.md)
 
 ## 计算机视觉trick汇总
 

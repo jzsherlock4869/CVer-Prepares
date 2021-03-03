@@ -23,13 +23,9 @@ R-CNN 是最早利用CNN 实现目标检测任务的方法，由rbg（Ross Girsh
 鉴于CNN 在整图分类任务中的优异性能，很自然的想法是将其用于目标检测领域，将CNN 强大的数据驱动的特征提取能力迁移到比整图分类更细致和复杂的任务中。R-CNN 的思路相对容易理解，它主要有以下几个步骤：
 
 1. 通过Selective Search（SS）方法筛选出一些备选的区域框（Region proposal）。
-
 2. 将这些备选的proposal 缩放到指定尺寸，用于输入CNN 进行分类（根据某种规则将各个proposal 分成正负样本）。其目的在于通过训练CNN，得到每个region proposal 的定长特征向量。
-
 3. 用每个proposal 中提取的特征向量训练SVM，得到最终的分类结果。
-
 4. 利用非极大值抑制\(Non-Maximun Suppresion\) 方法，对最终得到的bbox 进行筛选。
-
 5. 分类完成后，对bbox 进行回归，修正bbox 中的坐标的值，得到更精确的bbox。
 
 详细来说，第一步中，SS 可以得到大量的备选框，这些框中都有可能有某个类别的目标，因此都需要进行后续的处理。这个步骤是不区分类别的。第二步骤中，由于第一步SS 得到的proposal 没有指定大小和比例（长宽比），因此用普通的CNN（R-CNN 中用的是AlexNet）无法得到一样长度的特征向量。R-CNN 采取的对策是直接用缩放的方式将所有proposal 强行整理成同样的大小。这里的缩放并不确切，实际上是某种形变（warp），因为这种操作可能会导致proposal 的长宽比例发生改变，导致目标物体也发生形变。缩放完成后，剩下的步骤就是普通的整图分类时的结果，即输入CNN，输出每个类别的概率的向量。由于这个任务上（Image classification）已经有了很多在ImageNet 这种大数据集上预训练好的模型，因此可以直接借用，进行微调（fine-tune）。这个过程并不是最终的分类结果，而是只用来得到最后一层的特征向量。然后，将特征向量用来训练SVM，得到最终的分类。（这种先CNN 再SVM 的方法，仅仅将CNN 作为feature extractor，这种策略在有些场景下效果要比直接CNN 输出结果要好。这个实际上就是用SVM 替换了CNN 的最后一个LR。）
@@ -172,8 +168,6 @@ YOLO v2 的主要改进为以下几个方面：
 4. 直接预测位置坐标。之前的坐标回归实际上回归的不是坐标点，而是需要对预测结果做一个变换才能得到坐标点，即x = tx × wa − xa （纵坐标同理），其中tx 为预测的直接结果。从该变换的形式可以看出，对于坐标点的预测不仅和直接预测位置结果相关，还和预测的宽和高也相关。因此，这样的预测方式可以使得任何anchor box 可以出现在图像中的任意位置，导致模型可能不稳定。在YOLO v2 中，中心点预测结果为相对于该cell 的角点的坐标（0-1 之间），如下：
 5. 多尺度训练（随机选择一个缩放尺度）、跳连层（paththrough layer）将前面的fine-grained 特征直接拼接到后面的feature map 中。
 
-
-
 ![YOLO v2 &#x9884;&#x6D4B;bbox &#x7684;&#x5750;&#x6807;](https://pic1.zhimg.com/80/v2-02567decce91fa5233a9be81e1368004_1440w.jpg)
 
 YOLO v2 的backbone 被称为Darknet-19，共有19 个卷积层，间以Maxpool。其中，3\*3 conv filter 和1\*1 conv filter 交替的方式被采用。最后利用一个Avgpool（GAP，Global Average Pooling）输出预测结果。
@@ -243,18 +237,10 @@ Mask R-CNN 的损失函数由三个部分构成，分别是cls、reg 和mask。
 YOLO v3 是针对YOLO 模型的又一次改进版本，如作者自称，是一个incremental improvement，并无太大创新，基本都是一些调优和trick。主要包括以下几个方面。
 
 1. 用单类别的binary logistic 作为分类方式，代替全类别的softmax（和mask R-CNN 的mask 生成方式类似）。这样的好处在于可以处理有些数据集中有目标重叠的情况。
-
 2. YOLO v3 采用了FPN 网络做预测，并且沿用了k-means 聚类选择先验框，v3 中选择了9 个prior box，并选择了三个尺度。
-
 3. backbone 做了改进，从darknet-19 变成了darknet-53，darknet-53 除了3x3 和1x1 的交替以外，还加入了residual 方法，因此层数得到扩展。
 
 \*\*\*\*
-
-
-
-
-
-
 
 ==== first updated in 2020-09-14 13:01:33 \(create\) ====
 
